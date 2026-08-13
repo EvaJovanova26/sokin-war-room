@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICP Scorer · Sokin Send GTM Hub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ======= HEADER: identical on all five pages ======= -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <span class="brand-name">Sokin Send</span>
+          <span class="brand-divider">|</span>
+          <span class="brand-sub">GTM Campaign Hub</span>
+        </div>
+        <div class="brand-meta">
+          <span class="meta-label">Hybrid Finance · US &amp; UK</span>
+          <span class="author-pill">Eva Jovanova</span>
+        </div>
+      </div>
+      <nav class="tab-nav">
+        <a href="index.html">1. ROI Calculator</a>
+        <a href="battlecard.html">2. Compliance Battlecard</a>
+        <a href="icp-scorer.html" aria-current="page">3. ICP Scorer</a>
+        <a href="weekend-test.html">4. The Weekend Test</a>
+        <a href="90-days.html">5. 90 Days vs the JD</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <div class="page-intro">
+      <span class="eyebrow eyebrow-cyan">Behavioural targeting · lives in the CRM</span>
+      <h1 class="page-title">ICP scorer</h1>
+      <p class="page-lede">Not firmographics. Observed behaviour. Any two triggers qualify the account and drop it into the corridor sequence.</p>
+    </div>
+
+    <div class="icp-grid">
+
+      <!-- ============ LEFT: THE TRIGGERS ============
+           To add a trigger, copy one whole <button class="trigger">
+           block and edit its two lines of text. icp.js counts the
+           active ones automatically; the "any two qualifies"
+           threshold lives at the top of icp.js. -->
+      <div>
+        <div class="trigger-list">
+
+          <button type="button" class="trigger">
+            <div class="trigger-box">✓</div>
+            <div>
+              <p class="trigger-title">Material prefunding parked in corridors</p>
+              <p class="trigger-body">Cash sitting in LatAm, Africa or SE Asia purely to clear a cutoff.</p>
+            </div>
+          </button>
+
+          <button type="button" class="trigger">
+            <div class="trigger-box">✓</div>
+            <div>
+              <p class="trigger-title">Payout runs blocked by cutoffs and weekends</p>
+              <p class="trigger-body">Friday 5PM and month-end collisions. The exact pain the Weekend Test play targets.</p>
+            </div>
+          </button>
+
+          <button type="button" class="trigger">
+            <div class="trigger-box">✓</div>
+            <div>
+              <p class="trigger-title">Multi-provider treasury sprawl</p>
+              <p class="trigger-body">Three or more providers stitched together. One relationship is the consolidation pitch.</p>
+            </div>
+          </button>
+
+          <button type="button" class="trigger">
+            <div class="trigger-box">✓</div>
+            <div>
+              <p class="trigger-title">Complaints about FX-spread transparency</p>
+              <p class="trigger-body">Support tickets and QBR pushback on all-in cost. Opens the ROI conversation.</p>
+            </div>
+          </button>
+
+        </div>
+        <p class="niche-note">Plus one named niche outside the model: crypto-adjacent businesses that ask for it. Small, loud, fast to close.</p>
+      </div>
+
+      <!-- ============ RIGHT: THE SCORE ============
+           Filled in live by icp.js. -->
+      <div class="card score-card">
+        <span class="card-label">Account score</span>
+        <div class="score-ring" id="score-ring">
+          <span class="score-value" id="score-value">0</span>
+          <span class="score-denominator" id="score-denominator">of 4 triggers</span>
+        </div>
+        <p class="score-verdict" id="score-verdict">Not yet qualified</p>
+        <p class="score-explain" id="score-explain">Below threshold. Stays in lifecycle email until a second behaviour appears.</p>
+        <button type="button" class="sequence-btn" id="sequence-btn" disabled>Push to sequence</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="icp.js"></script>
+</body>
+</html>
