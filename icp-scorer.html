@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ICP Scorer · Sokin Send GTM Hub</title>
+  <title>Who is worth chasing · Sokin Send GTM Hub</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +28,11 @@
         </div>
       </div>
       <nav class="tab-nav">
-        <a href="index.html">1. ROI Calculator</a>
-        <a href="battlecard.html">2. Compliance Battlecard</a>
-        <a href="icp-scorer.html" aria-current="page">3. ICP Scorer</a>
+        <a href="index.html">1. The cost of waiting</a>
+        <a href="battlecard.html">2. Frozen is not safe</a>
+        <a href="icp-scorer.html" aria-current="page">3. Who is worth chasing</a>
         <a href="weekend-test.html">4. The Weekend Test</a>
-        <a href="90-days.html">5. 90 Days vs the JD</a>
+        <a href="90-days.html">5. The first 90 days</a>
       </nav>
     </div>
   </header>
@@ -40,74 +40,120 @@
   <main class="page">
 
     <div class="page-intro">
-      <span class="eyebrow eyebrow-cyan">Behavioural targeting · lives in the CRM</span>
-      <h1 class="page-title">ICP scorer</h1>
-      <p class="page-lede">Not firmographics. Observed behaviour. Any two triggers qualify the account and drop it into the corridor sequence.</p>
+      <span class="eyebrow eyebrow-cyan">Account qualification</span>
+      <h1 class="page-title">Who is worth chasing</h1>
+      <p class="page-lede">Two questions decide where a seller's week goes. Does the account structurally fit, and is something happening right now that makes them buy? Plotted together, they name the action, not just the score.</p>
     </div>
 
-    <div class="icp-grid">
+    <div class="stage-rail">
 
-      <!-- ============ LEFT: THE TRIGGERS ============
-           To add a trigger, copy one whole <button class="trigger">
-           block and edit its two lines of text. icp.js counts the
-           active ones automatically; the "any two qualifies"
-           threshold lives at the top of icp.js. -->
-      <div>
-        <div class="trigger-list">
+      <!-- ============ MAIN STAGE ============ -->
+      <div class="quad-grid">
 
-          <button type="button" class="trigger">
-            <div class="trigger-box">✓</div>
-            <div>
-              <p class="trigger-title">Material prefunding parked in corridors</p>
-              <p class="trigger-body">Cash sitting in LatAm, Africa or SE Asia purely to clear a cutoff.</p>
+        <!-- Inputs -->
+        <div class="quad-inputs">
+
+          <div>
+            <span class="input-group-label">Structural fit</span>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div class="field-block">
+                <label class="field-label" for="corridor">Cross-border corridor exposure</label>
+                <select class="select-input" id="corridor">
+                  <option value="0">Little or none</option>
+                  <option value="1">Occasional, a few corridors</option>
+                  <option value="2" selected>Core to the business, recurring payouts</option>
+                </select>
+              </div>
+              <div class="field-block">
+                <label class="field-label" for="volume-band">Annual cross-border volume</label>
+                <select class="select-input" id="volume-band">
+                  <option value="0">Under $10M</option>
+                  <option value="2" selected>$10M to $120M</option>
+                  <option value="1">Over $120M</option>
+                </select>
+              </div>
+              <div class="field-block">
+                <label class="field-label" for="size">Company size</label>
+                <select class="select-input" id="size">
+                  <option value="0">Small, under 50 people</option>
+                  <option value="2" selected>Mid-market</option>
+                  <option value="1">Enterprise</option>
+                </select>
+              </div>
             </div>
-          </button>
+          </div>
 
-          <button type="button" class="trigger">
-            <div class="trigger-box">✓</div>
-            <div>
-              <p class="trigger-title">Payout runs blocked by cutoffs and weekends</p>
-              <p class="trigger-body">Friday 5PM and month-end collisions. The exact pain the Weekend Test play targets.</p>
+          <div>
+            <span class="input-group-label">Buying intent · observable events</span>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <label class="check-row"><input type="checkbox" class="intent"><span>New finance or treasury leadership in the last six months</span></label>
+              <label class="check-row"><input type="checkbox" class="intent"><span>ERP migration underway</span></label>
+              <label class="check-row"><input type="checkbox" class="intent"><span>Hiring for international expansion</span></label>
+              <label class="check-row"><input type="checkbox" class="intent"><span>Three or more payment providers stitched together</span></label>
             </div>
-          </button>
+          </div>
 
-          <button type="button" class="trigger">
-            <div class="trigger-box">✓</div>
-            <div>
-              <p class="trigger-title">Multi-provider treasury sprawl</p>
-              <p class="trigger-body">Three or more providers stitched together. One relationship is the consolidation pitch.</p>
-            </div>
-          </button>
-
-          <button type="button" class="trigger">
-            <div class="trigger-box">✓</div>
-            <div>
-              <p class="trigger-title">Complaints about FX-spread transparency</p>
-              <p class="trigger-body">Support tickets and QBR pushback on all-in cost. Opens the ROI conversation.</p>
-            </div>
-          </button>
+          <div>
+            <label class="check-row danger"><input type="checkbox" id="disqualified"><span>Sanctioned or prohibited jurisdiction anywhere in the payment flow</span></label>
+          </div>
 
         </div>
-        <p class="niche-note">Plus one named niche outside the model: crypto-adjacent businesses that ask for it. Small, loud, fast to close.</p>
-      </div>
 
-      <!-- ============ RIGHT: THE SCORE ============
-           Filled in live by icp.js. -->
-      <div class="card score-card">
-        <span class="card-label">Account score</span>
-        <div class="score-ring" id="score-ring">
-          <span class="score-value" id="score-value">0</span>
-          <span class="score-denominator" id="score-denominator">of 4 triggers</span>
+        <!-- Quadrant + verdict -->
+        <div class="quad-panel">
+          <div class="quad-svg-wrap">
+            <svg class="quad-svg" viewBox="0 0 440 400" role="img" aria-label="Fit against intent quadrant" width="100%">
+              <!-- quadrant background -->
+              <rect x="40" y="20" width="380" height="340" fill="#0f172a" stroke="#334155" rx="12"/>
+              <!-- quadrant dividers -->
+              <line x1="230" y1="20" x2="230" y2="360" stroke="#1e293b" stroke-width="1.5"/>
+              <line x1="40" y1="190" x2="420" y2="190" stroke="#1e293b" stroke-width="1.5"/>
+              <!-- quadrant labels -->
+              <text x="135" y="44" text-anchor="middle" font-size="9" fill="#64748b" letter-spacing="1.5">NURTURE ONLY</text>
+              <text x="325" y="44" text-anchor="middle" font-size="9" fill="#34d399" letter-spacing="1.5">CONTACT THIS WEEK</text>
+              <text x="135" y="348" text-anchor="middle" font-size="9" fill="#475569" letter-spacing="1.5">SKIP</text>
+              <text x="325" y="348" text-anchor="middle" font-size="9" fill="#64748b" letter-spacing="1.5">WAIT FOR A TRIGGER</text>
+              <!-- axis labels -->
+              <text x="230" y="388" text-anchor="middle" font-size="10" fill="#94a3b8" letter-spacing="1.5">STRUCTURAL FIT</text>
+              <text x="16" y="190" text-anchor="middle" font-size="10" fill="#94a3b8" letter-spacing="1.5" transform="rotate(-90 16 190)">BUYING INTENT</text>
+              <!-- the live dot -->
+              <circle id="quad-dot" cx="230" cy="190" r="11" fill="#34d399" stroke="#0f172a" stroke-width="3"/>
+            </svg>
+          </div>
+
+          <div class="quad-verdict" id="verdict-panel">
+            <h2 id="verdict-title">Contact this week</h2>
+            <p id="verdict-body">High fit, high intent. Something is happening inside this account right now. A seller should own it before the window closes.</p>
+          </div>
         </div>
-        <p class="score-verdict" id="score-verdict">Not yet qualified</p>
-        <p class="score-explain" id="score-explain">Below threshold. Stays in lifecycle email until a second behaviour appears.</p>
-        <button type="button" class="sequence-btn" id="sequence-btn" disabled>Push to sequence</button>
+
       </div>
 
+      <!-- ============ SIDE RAIL ============ -->
+      <aside class="rail">
+        <p class="rail-title">Why this exists</p>
+        <div class="rail-item">
+          <span class="rail-kicker">Fit is structural, intent is observable</span>
+          <p>Fit tells you whether an account can ever be a good customer. Intent tells you whether it can be one now. Confusing the two is how sellers spend a quarter on accounts that were never going to move.</p>
+        </div>
+        <div class="rail-item">
+          <span class="rail-kicker">The mid-market is scored highest on purpose</span>
+          <p>The largest accounts fit, but their cycles run longest and their committees run widest. The beachhead is the tier that can decide in a quarter.</p>
+        </div>
+        <div class="rail-item">
+          <span class="rail-kicker">The stop is not a feature</span>
+          <p>The jurisdiction disqualifier overrides every score, quietly. In a regulated business, knowing when not to sell is part of knowing how to sell.</p>
+        </div>
+      </aside>
+
+    </div>
+
+    <div style="margin-top: 8px;">
+      <a class="exit-link" href="index.html">Qualified? Build the business case for this account &rarr;</a>
     </div>
 
   </main>
 
-  <script src="icp.js"></script>
+  <script src="scorer-logic.js"></script>
 </body>
 </html>

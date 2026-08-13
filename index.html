@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROI Calculator · Sokin Send GTM Hub</title>
+  <title>The cost of waiting · Sokin Send GTM Hub</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,11 +29,11 @@
         </div>
       </div>
       <nav class="tab-nav">
-        <a href="index.html" aria-current="page">1. ROI Calculator</a>
-        <a href="battlecard.html">2. Compliance Battlecard</a>
-        <a href="icp-scorer.html">3. ICP Scorer</a>
+        <a href="index.html" aria-current="page">1. The cost of waiting</a>
+        <a href="battlecard.html">2. Frozen is not safe</a>
+        <a href="icp-scorer.html">3. Who is worth chasing</a>
         <a href="weekend-test.html">4. The Weekend Test</a>
-        <a href="90-days.html">5. 90 Days vs the JD</a>
+        <a href="90-days.html">5. The first 90 days</a>
       </nav>
     </div>
   </header>
@@ -41,99 +41,178 @@
   <main class="page">
 
     <div class="page-intro">
-      <span class="eyebrow eyebrow-emerald">Consideration asset · pre-loaded per corridor</span>
-      <h1 class="page-title">The cost of cutoffs, priced for your book</h1>
-      <p class="page-lede">The initiator's entry asset. Controller drags three sliders, the CFO gets a number. Spread compression and prefunding release, quantified before a seller is ever involved.</p>
+      <span class="eyebrow eyebrow-emerald">Business case builder</span>
+      <h1 class="page-title">The cost of waiting</h1>
+      <p class="page-lede">You know your FX spread. You probably do not know what your current setup costs you in trapped liquidity, per-wire fees and hours spent chasing payments. This model prices the whole stack, not the headline rate. Every assumption is visible and editable.</p>
     </div>
 
-    <div class="roi-grid">
+    <div class="stage-rail">
 
-      <!-- ============ LEFT: INPUTS ============
-           Slider ranges and starting values live in the min / max /
-           step / value attributes below. The formulas live in roi.js. -->
-      <div class="card inputs-card">
-        <div class="inputs-head">
-          <span class="card-label">Your inputs</span>
-          <span class="inputs-hint">Tier 2 default</span>
-        </div>
+      <!-- ============ MAIN STAGE ============ -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
 
-        <div class="slider-block">
-          <div class="slider-head">
-            <span class="slider-name">Monthly payout volume</span>
-            <span class="slider-value" id="volume-label">$4M</span>
+        <!-- Inputs -->
+        <div class="card inputs-card">
+          <span class="card-label">Your numbers</span>
+
+          <div class="field-block">
+            <label class="field-label" for="volume">Monthly transfer volume, USD</label>
+            <input class="num-input" type="number" id="volume" min="0" step="10000" value="4000000">
           </div>
-          <input type="range" id="volume" min="1000000" max="25000000" step="500000" value="4000000"
-                 aria-label="Monthly payout volume">
-          <div class="slider-marks"><span>$1M</span><span>$25M</span></div>
-        </div>
 
-        <div class="divider"></div>
-
-        <div class="slider-block">
-          <div class="slider-head">
-            <span class="slider-name">All-in FX spread today</span>
-            <span class="slider-value" id="spread-label">1.20%</span>
+          <div class="field-block">
+            <label class="field-label" for="transfers">Transfers per month</label>
+            <input class="num-input" type="number" id="transfers" min="0" step="1" value="120">
+            <p class="field-help">Needed separately from volume, because per-wire fees are charged per transfer.</p>
           </div>
-          <input type="range" id="spread" min="0.3" max="3" step="0.05" value="1.2"
-                 aria-label="All-in FX spread today">
-          <div class="slider-marks"><span>0.30%</span><span>3.00%</span></div>
-        </div>
 
-        <div class="divider"></div>
-
-        <div class="slider-block">
-          <div class="slider-head">
-            <span class="slider-name">Prefunding parked in corridor</span>
-            <span class="slider-value" id="prefund-label">4 days</span>
-          </div>
-          <input type="range" id="prefund" min="0" max="10" step="1" value="4"
-                 aria-label="Prefunding days parked in corridor">
-          <div class="slider-marks"><span>0 days</span><span>10 days</span></div>
-        </div>
-
-        <div class="assumption-note">
-          <p>Hybrid baseline holds all-in cost under 0.50%, settling 24/7. Prefunding drag goes to zero because there is no cutoff to fund ahead of.</p>
-        </div>
-      </div>
-
-      <!-- ============ RIGHT: OUTPUTS ============
-           Everything with an id below is filled in by roi.js. -->
-      <div class="outputs-col">
-
-        <div class="hero-card">
-          <div class="hero-glow"></div>
-          <div class="hero-body">
-            <span class="hero-label">Annual savings</span>
-            <div class="hero-figure-row">
-              <span class="hero-figure" id="savings">$360,000</span>
-              <span class="hero-pill" id="bps">75 bps compressed</span>
+          <div class="slider-block">
+            <div class="slider-head">
+              <span class="slider-name">Average days in transit</span>
+              <span class="slider-value" id="days-label">3 days</span>
             </div>
-            <p class="hero-note">Spread compression on <span id="annual-volume">$48M</span> of annual payout volume, moved from correspondent banking onto hybrid rails.</p>
+            <input type="range" id="days" min="1" max="5" step="1" value="3" aria-label="Average days in transit">
+            <div class="slider-marks"><span>1 day</span><span>5 days</span></div>
+          </div>
+
+          <div class="field-block">
+            <label class="field-label" for="chase-hours">Hours per month spent chasing delayed or returned payments</label>
+            <input class="num-input" type="number" id="chase-hours" min="0" step="1" value="0">
+            <p class="field-help">Left at zero on purpose. If this number is not zero for you, you already know it.</p>
           </div>
         </div>
 
-        <div class="stat-pair">
-          <div class="card stat-cyan">
-            <span class="card-label">Working capital released</span>
-            <span class="big-number" id="working-capital">$761,905</span>
-            <p class="small-note">Cash currently parked ahead of cutoffs, returned to the balance sheet on day one.</p>
+        <!-- Assumptions -->
+        <details class="assumptions">
+          <summary>Assumptions · all editable</summary>
+          <div class="assumptions-grid">
+            <div class="assumption-field">
+              <label for="coc">Cost of capital, % per year</label>
+              <input class="num-input" type="number" id="coc" min="0" step="0.1" value="8.0">
+            </div>
+            <div class="assumption-field">
+              <label for="hourly">Fully loaded finance team cost, $ per hour</label>
+              <input class="num-input" type="number" id="hourly" min="0" step="1" value="50">
+            </div>
+            <div class="assumption-field">
+              <label for="lifting">Average lifting fee per wire, $</label>
+              <input class="num-input" type="number" id="lifting" min="0" step="1" value="25">
+            </div>
+            <div class="assumption-field">
+              <label for="legacy-spread">Legacy FX spread, %</label>
+              <input class="num-input" type="number" id="legacy-spread" min="0" step="0.05" value="1.20">
+            </div>
+            <div class="assumption-field">
+              <label for="sokin-spread">Sokin FX spread, %</label>
+              <input class="num-input" type="number" id="sokin-spread" min="0" step="0.05" placeholder="enter Sokin's published rate">
+            </div>
+            <div class="assumption-field">
+              <label for="sokin-hours">Residual investigation hours per month under Sokin</label>
+              <input class="num-input" type="number" id="sokin-hours" min="0" step="1" value="2">
+            </div>
+            <div class="assumption-field">
+              <label for="sokin-days">Sokin days in transit</label>
+              <input class="num-input" type="number" id="sokin-days" min="0" step="0.5" value="1">
+            </div>
           </div>
-          <div class="card">
-            <span class="card-label">Payback framing</span>
-            <span class="big-number" id="payback">5.1 months</span>
-            <p class="small-note">To cover a fully loaded integration and treasury change programme of <span id="program-cost">$150,000</span>.</p>
+        </details>
+
+        <!-- Outputs -->
+        <div class="cost-compare">
+
+          <div class="cost-col cost-col-legacy">
+            <h2>Current stack</h2>
+            <div class="cost-line">
+              <span class="cost-line-name">FX cost<span class="cost-line-period">Monthly</span></span>
+              <span class="cost-line-value" id="a-fx">$0</span>
+            </div>
+            <div class="cost-line">
+              <span class="cost-line-name">Lifting fees<span class="cost-line-period">Monthly</span></span>
+              <span class="cost-line-value" id="a-lift">$0</span>
+            </div>
+            <div class="cost-line">
+              <span class="cost-line-name">Reconciliation and chasing<span class="cost-line-period">Monthly</span></span>
+              <span class="cost-line-value" id="a-recon">$0</span>
+            </div>
+            <div class="cost-line">
+              <span class="cost-line-name">Opportunity cost of cash in transit<span class="cost-line-period">Monthly, from annual cost of capital</span></span>
+              <span class="cost-line-value" id="a-opp">$0</span>
+            </div>
+            <div class="cost-total">
+              <span class="cost-total-name">Total<span class="cost-line-period">Monthly</span></span>
+              <span class="cost-total-value" id="a-total">$0</span>
+            </div>
+            <div class="cost-total">
+              <span class="cost-total-name">Total<span class="cost-line-period">Annual</span></span>
+              <span class="cost-total-value" id="a-total-annual">$0</span>
+            </div>
+          </div>
+
+          <div class="cost-col cost-col-sokin">
+            <h2>Sokin</h2>
+            <div class="cost-line">
+              <span class="cost-line-name">FX cost<span class="cost-line-period">Monthly</span></span>
+              <span class="cost-line-value" id="b-fx">$0</span>
+            </div>
+            <div class="cost-line">
+              <span class="cost-line-name">Lifting fees<span class="cost-line-period">Monthly · $0 by contract, no correspondent chain</span></span>
+              <span class="cost-line-value" id="b-lift">$0</span>
+            </div>
+            <div class="cost-line">
+              <span class="cost-line-name">Reconciliation and chasing<span class="cost-line-period">Monthly</span></span>
+              <span class="cost-line-value" id="b-recon">$0</span>
+            </div>
+            <div class="cost-line">
+              <span class="cost-line-name">Opportunity cost of cash in transit<span class="cost-line-period">Monthly, from annual cost of capital</span></span>
+              <span class="cost-line-value" id="b-opp">$0</span>
+            </div>
+            <div class="cost-total">
+              <span class="cost-total-name">Total<span class="cost-line-period">Monthly</span></span>
+              <span class="cost-total-value" id="b-total">$0</span>
+            </div>
+            <div class="cost-total">
+              <span class="cost-total-name">Total<span class="cost-line-period">Annual</span></span>
+              <span class="cost-total-value" id="b-total-annual">$0</span>
+            </div>
+            <p class="residual-note">The Sokin column carries a residual cost on purpose. A model where the challenger still costs something is one a finance team can trust. Both residual lines are editable in the assumptions above.</p>
+          </div>
+
+        </div>
+
+        <div class="difference-bar">
+          <span class="difference-label">Difference</span>
+          <div class="difference-figures">
+            <span class="difference-monthly" id="diff-monthly">$0</span>
+            <span class="difference-annual"><span id="diff-annual">$0</span> per year</span>
           </div>
         </div>
 
-        <div class="footnote-bar">
-          <span>Assumption set is visible on purpose. Finance signs the model before a seller quotes it.</span>
+        <div>
+          <a class="exit-link" href="icp-scorer.html">Score the account this case was built for &rarr;</a>
         </div>
 
       </div>
+
+      <!-- ============ SIDE RAIL ============ -->
+      <aside class="rail">
+        <p class="rail-title">Why this exists</p>
+        <div class="rail-item">
+          <p>Most ROI calculators compare two spreads and declare victory. Finance teams do not believe them, because the spread is the one number they already know. The persuadable cost sits in the three lines nobody prices: fees per wire, hours per exception, capital per day in transit.</p>
+        </div>
+        <div class="rail-item">
+          <span class="rail-kicker">The deliberate choices</span>
+          <p><strong>Chasing hours default to zero</strong> so the prospect claims the pain rather than being told they have it. <strong>Sokin's rate is never guessed</strong>; the model asks for the published rate rather than fabricating one. <strong>The challenger column is not zeros</strong>, because a residual is what makes the total survive a CFO's first question.</p>
+        </div>
+        <div class="rail-item">
+          <span class="rail-kicker">Where it sits</span>
+          <p>Sent ahead of a first call so the conversation starts from the prospect's own numbers, then re-run live with their controller in the room.</p>
+        </div>
+      </aside>
+
     </div>
 
   </main>
 
-  <script src="roi.js"></script>
+  <script src="calculator-logic.js"></script>
 </body>
 </html>

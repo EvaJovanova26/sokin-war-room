@@ -28,11 +28,11 @@
         </div>
       </div>
       <nav class="tab-nav">
-        <a href="index.html">1. ROI Calculator</a>
-        <a href="battlecard.html">2. Compliance Battlecard</a>
-        <a href="icp-scorer.html">3. ICP Scorer</a>
+        <a href="index.html">1. The cost of waiting</a>
+        <a href="battlecard.html">2. Frozen is not safe</a>
+        <a href="icp-scorer.html">3. Who is worth chasing</a>
         <a href="weekend-test.html" aria-current="page">4. The Weekend Test</a>
-        <a href="90-days.html">5. 90 Days vs the JD</a>
+        <a href="90-days.html">5. The first 90 days</a>
       </nav>
     </div>
   </header>
@@ -40,98 +40,102 @@
   <main class="page">
 
     <div class="page-intro">
-      <span class="eyebrow eyebrow-emerald">Sample play · Tier 2 · LatAm corridor</span>
+      <span class="eyebrow eyebrow-emerald">One corridor · one campaign</span>
       <h1 class="page-title">The Weekend Test</h1>
-      <p class="page-hook">"Pix never sleeps. Your dollar leg does."</p>
-      <p class="page-lede">One hook, four stages, one job per channel. Every asset below is keyed to month-end.</p>
+      <p class="hook-line">"Pix never sleeps. <em>Your dollar leg does.</em>"</p>
+      <p class="page-lede">Brazil pays instantly, around the clock. The dollar side of the same payment stops at Friday 5PM and waits for Monday. This campaign is built entirely on that gap: one corridor, three phases in sequence, and a stated point at which each phase stops if the evidence says so.</p>
     </div>
 
-    <!-- ============ THE FOUR FUNNEL STAGES ============
-         Each stage is one self-contained card. The colour comes
-         from the second class on the card (stage-awareness,
-         stage-consideration, stage-decision, stage-adoption). -->
-    <div class="funnel-grid">
+    <div class="stage-rail">
 
-      <div class="stage-card stage-awareness">
-        <span class="stage-eyebrow">01 · Awareness</span>
-        <div class="stage-bar"></div>
-        <p class="stage-asset">The Cost of Cutoffs</p>
-        <p class="stage-detail">Corridor benchmark report plus treasury-event presence at AFP and EuroFinance.</p>
-        <div class="stage-footer">
-          <div class="stage-job">
-            <span class="card-label">Job</span>
-            <p>Get found by the right accounts.</p>
+      <!-- ============ MAIN STAGE ============
+           Three phases in strict order. Each phase is one .phase div
+           with a summary, a kill criterion in the red box, and a
+           details toggle holding the ground-level execution. -->
+      <div>
+
+        <div class="phase">
+          <div class="phase-head">
+            <h2 class="phase-name">Wedge</h2>
+            <span class="phase-order">Phase 1 · weeks 1 to 6</span>
           </div>
-          <div class="stage-kpi-row">
-            <span class="card-label">KPI</span>
-            <span class="stage-kpi">ICP Reach</span>
+          <p class="phase-summary">Focus entirely on the Friday to Monday gap in the US to Brazil corridor. The entry motion is a weekend liquidity audit: the cost of waiting model, run against the prospect's own volumes, timed to land in the week before month-end when the pain is live.</p>
+          <div class="kill-box">
+            <span class="kill-label">Stops if</span>
+            <p>Fewer than ten qualified accounts agree to run the audit by the end of week 6. If the corridor's treasurers will not even look at their own weekend numbers, the wedge is wrong or the corridor is wrong, and the campaign moves to the next candidate corridor rather than pushing harder on this one.</p>
           </div>
+          <details class="ground">
+            <summary>Ground level</summary>
+            <div class="ground-body">
+              <p><span class="rail-kicker">The sequence</span>Five touches over three weeks, all anchored to the calendar: the first lands the Tuesday before month-end, the last lands the Monday after, referencing the weekend that just happened.</p>
+              <p><span class="rail-kicker">The talk track</span>"What happened to your Brazil payouts last Friday at 5PM? We can put a dollar figure on it in twenty minutes, using your numbers, not ours."</p>
+              <p><span class="rail-kicker">The asset</span>The cost of waiting calculator, pre-set to the corridor, sent as a link the controller can drag around before anyone asks for a meeting.</p>
+            </div>
+          </details>
         </div>
-      </div>
 
-      <div class="stage-card stage-consideration">
-        <span class="stage-eyebrow">02 · Consideration</span>
-        <div class="stage-bar"></div>
-        <p class="stage-asset">CFO webinar plus six touches</p>
-        <p class="stage-detail">Outbound keyed to month-end, ERP and accounting-platform partners carrying the same story.</p>
-        <div class="stage-footer">
-          <div class="stage-job">
-            <span class="card-label">Job</span>
-            <p>Turn interest into pipeline.</p>
+        <div class="phase">
+          <div class="phase-head">
+            <h2 class="phase-name">Proof</h2>
+            <span class="phase-order">Phase 2 · weeks 7 to 14</span>
           </div>
-          <div class="stage-kpi-row">
-            <span class="card-label">KPI</span>
-            <span class="stage-kpi">Reply Rate</span>
+          <p class="phase-summary">Three design partners drawn from the existing customer book, not new logos. A time-boxed pilot in the corridor where the deliverable being sold is the settlement data the pilot generates: their own before and after, documented. The platform is the means, the evidence is the product.</p>
+          <div class="kill-box">
+            <span class="kill-label">Stops if</span>
+            <p>Fewer than two design partners are signed and in onboarding by the end of week 10, or the pilot data shows no material difference against the partners' own baseline by week 14. Evidence that does not exist cannot be scaled, and manufacturing it retroactively is how challenger brands destroy trust.</p>
           </div>
+          <details class="ground">
+            <summary>Ground level</summary>
+            <div class="ground-body">
+              <p><span class="rail-kicker">The sequence</span>Direct outreach from the account owner, not marketing, to the five best-fit existing accounts with corridor exposure. Design partner terms in the first conversation, not the third.</p>
+              <p><span class="rail-kicker">The talk track</span>"You already trust us with part of your flow. Run the Brazil weekend leg with us for eight weeks. You keep the settlement data either way, and it is yours to beat your bank up with even if you never expand."</p>
+              <p><span class="rail-kicker">The asset</span>A one-page pilot charter: scope, duration, what gets measured, who sees the data, and the exit terms. Reviewed by compliance before the first partner sees it.</p>
+            </div>
+          </details>
         </div>
-      </div>
 
-      <div class="stage-card stage-decision">
-        <span class="stage-eyebrow">03 · Decision</span>
-        <div class="stage-bar"></div>
-        <p class="stage-asset">ROI calculator, pre-loaded</p>
-        <p class="stage-detail">Their corridor, their volume. Battlecards and design-partner references arrive alongside it.</p>
-        <div class="stage-footer">
-          <div class="stage-job">
-            <span class="card-label">Job</span>
-            <p>Win the committee.</p>
+        <div class="phase">
+          <div class="phase-head">
+            <h2 class="phase-name">Scale</h2>
+            <span class="phase-order">Phase 3 · week 15 onward</span>
           </div>
-          <div class="stage-kpi-row">
-            <span class="card-label">KPI</span>
-            <span class="stage-kpi">Win Rate</span>
+          <p class="phase-summary">Take the pilot data to ERP and accounting platform partners active in the corridor, and open an embedded route alongside direct sales. The partner conversation starts from documented settlement evidence, which is the only opening a platform partnerships team takes seriously.</p>
+          <div class="kill-box">
+            <span class="kill-label">Stops if</span>
+            <p>No platform partner has agreed to a scoping conversation within eight weeks of the pilot data being available. That would mean the evidence persuades treasurers but not platforms, in which case the corridor motion continues direct-only and the partner route is re-examined with different evidence, not louder outreach.</p>
           </div>
+          <details class="ground">
+            <summary>Ground level</summary>
+            <div class="ground-body">
+              <p><span class="rail-kicker">The sequence</span>Map which ERPs the design partners themselves run. Warm introduction through the shared customer beats a cold partnerships deck every time.</p>
+              <p><span class="rail-kicker">The talk track</span>"Your mutual customer cut their weekend settlement gap in this corridor. Here is their documented before and after. There are more of them on your platform."</p>
+              <p><span class="rail-kicker">The asset</span>A co-brandable corridor report built from the pilot data, plus an embedded Send integration brief for the partner's product team.</p>
+            </div>
+          </details>
         </div>
-      </div>
 
-      <div class="stage-card stage-adoption">
-        <span class="stage-eyebrow">04 · Adoption</span>
-        <div class="stage-bar"></div>
-        <p class="stage-asset">Lifecycle and in-product</p>
-        <p class="stage-detail">Onboarding sequences, in-product prompts, CS adoption campaigns on activated accounts.</p>
-        <div class="stage-footer">
-          <div class="stage-job">
-            <span class="card-label">Job</span>
-            <p>Turn accounts into NRR.</p>
-          </div>
-          <div class="stage-kpi-row">
-            <span class="card-label">KPI</span>
-            <span class="stage-kpi">Time to 1st Txn</span>
-          </div>
+        <div style="margin-top: 24px;">
+          <a class="exit-link" href="90-days.html">Where this sits in the first 90 days &rarr;</a>
         </div>
+
       </div>
 
-    </div>
+      <!-- ============ SIDE RAIL ============ -->
+      <aside class="rail">
+        <p class="rail-title">Why this exists</p>
+        <div class="rail-item">
+          <p>The position this page argues: <strong>a bet without a stopping rule is a plan with confident adjectives.</strong> Every phase above names the evidence, and the date, that kills it. That is what separates a campaign from a list of activities, and it is the discipline that lets a small team place a concentrated bet without betting the year.</p>
+        </div>
+        <div class="rail-item">
+          <span class="rail-kicker">Why one corridor</span>
+          <p>Concentration is the whole strategy. A challenger spread across every corridor is invisible in all of them. One corridor, won visibly, produces the evidence that opens the next.</p>
+        </div>
+        <div class="rail-item">
+          <span class="rail-kicker">What this does not claim</span>
+          <p>Nothing here forces an incumbent to react. A corridor beachhead does not move a global bank, and pretending otherwise would be the one junior note in the plan. The beachhead stands on its own economics.</p>
+        </div>
+      </aside>
 
-    <!-- ============ THE TWO ROUTES ============ -->
-    <div class="route-pair">
-      <div class="card route-card">
-        <span class="card-label route-direct">Route · Direct</span>
-        <p>Sokin's own funnel. SDRs, AEs, lifecycle. We run every stage ourselves.</p>
-      </div>
-      <div class="card route-card">
-        <span class="card-label route-partner">Route · Partner led</span>
-        <p>Platforms and ERPs run the last mile. We arm them with co-brandable pillars and embedded Send use cases.</p>
-      </div>
     </div>
 
   </main>
