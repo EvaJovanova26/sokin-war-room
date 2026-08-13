@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frozen is not safe · Sokin Send GTM Hub</title>
+  <title>Compliance Battlecard · Sokin Send GTM Hub</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +28,11 @@
         </div>
       </div>
       <nav class="tab-nav">
-        <a href="index.html">1. The cost of waiting</a>
-        <a href="battlecard.html" aria-current="page">2. Frozen is not safe</a>
-        <a href="icp-scorer.html">3. Who is worth chasing</a>
+        <a href="index.html">1. ROI Calculator</a>
+        <a href="battlecard.html" aria-current="page">2. Compliance Battlecard</a>
+        <a href="icp-scorer.html">3. ICP Scorer</a>
         <a href="weekend-test.html">4. The Weekend Test</a>
-        <a href="90-days.html">5. The first 90 days</a>
+        <a href="90-days.html">5. 90 Days vs the JD</a>
       </nav>
     </div>
   </header>
@@ -40,85 +40,88 @@
   <main class="page">
 
     <div class="page-intro">
-      <span class="eyebrow eyebrow-pink">Objection handling</span>
-      <h1 class="page-title">Frozen is not safe</h1>
-      <p class="page-lede">Banks are secure. Concede that immediately. The question a treasurer should ask is what that security does to their working capital. Legacy compliance runs after the payment leaves, so a flag freezes funds mid-flight with no visibility to the sender. Sokin's screening clears the payment before the money moves. The pitch is certainty, not security.</p>
+      <span class="eyebrow eyebrow-pink">Decision stage · sales enablement</span>
+      <h1 class="page-title">Compliance battlecard</h1>
+      <p class="page-lede">Sokin's own committee map shows Compliance and IT stalling Tier 1 and Tier 2 deals. One page neutralises it, deployed before the objection surfaces.</p>
     </div>
 
-    <div class="stage-rail">
+    <div class="battlecard-grid">
 
-      <!-- ============ MAIN STAGE ============
-           Three plays. Each play is one self-contained div with three
-           cells: what the prospect says, why the legacy structure
-           produces that outcome, and what the seller says back.
-           Copy a whole .play block to add one. -->
-      <div>
-
-        <div class="play">
-          <div class="play-cell play-cell-prospect">
-            <p class="play-name">The freeze</p>
-            <p class="play-quote">"Our bank held a supplier payment for nine days and could not tell us why."</p>
-          </div>
-          <div class="play-cell">
-            <p class="play-name">Why it happens</p>
-            <p class="play-mechanism">Legacy screening runs after initiation. The payment leaves, a rule fires somewhere along the route, and the funds stop in a place the sender cannot see. The bank often cannot explain the hold, because the hold may not be theirs.</p>
-          </div>
-          <div class="play-cell play-cell-seller">
-            <p class="play-name">What the seller says</p>
-            <p class="play-quote">"With pre-flight screening, the transaction clears before it leaves. If something needs checking, it gets checked while your money is still yours."</p>
-          </div>
+      <!-- ============ LEFT: THE OBJECTION ============ -->
+      <div class="objection-card">
+        <div class="speaker-row">
+          <div class="speaker-dot dot-red"></div>
+          <span class="speaker-label label-red">Buyer objection</span>
         </div>
 
-        <div class="play">
-          <div class="play-cell play-cell-prospect">
-            <p class="play-name">The multiplier</p>
-            <p class="play-quote">"Why does the same corridor behave differently every month?"</p>
-          </div>
-          <div class="play-cell">
-            <p class="play-name">Why it happens</p>
-            <p class="play-mechanism">A legacy cross-border payment can route through two or three correspondent banks. Each runs its own screening, on its own rules, on its own calendar. Every additional intermediary is another independent point at which the payment can be held, at a bank the sender has no relationship with and no number to call.</p>
-          </div>
-          <div class="play-cell play-cell-seller">
-            <p class="play-name">What the seller says</p>
-            <p class="play-quote">"There is no chain of intermediaries here. One counterparty, one screening pass, one relationship to call if you ever need to."</p>
-          </div>
+        <p class="objection-quote">"We are not putting crypto on our balance sheet. And I am not explaining a chain exposure to our board or our auditors."</p>
+
+        <div class="persona-block">
+          <p class="persona-name">Head of Compliance</p>
+          <p class="persona-role">Influencer. Hired to prove this adds no regulatory or security surface. Deals die here.</p>
         </div>
 
-        <div class="play">
-          <div class="play-cell play-cell-prospect">
-            <p class="play-name">The onboarding drag</p>
-            <p class="play-quote">"Opening the corridor account took our bank eleven weeks."</p>
-          </div>
-          <div class="play-cell">
-            <p class="play-name">Why it happens</p>
-            <p class="play-mechanism">Bank KYC is manual and document-led: certified copies, wet signatures, sequential review queues. The checks themselves are legitimate and necessary. The delivery mechanism is what is slow.</p>
-          </div>
-          <div class="play-cell play-cell-seller">
-            <p class="play-name">What the seller says</p>
-            <p class="play-quote">"The same checks run through an API-led process, so onboarding is measured in days rather than weeks. Nothing is skipped. It is the queue that disappears, not the diligence."</p>
-          </div>
+        <div class="coach-box">
+          <span class="card-label">Tell, do not sell</span>
+          <p>Never lead with chains, wallets or tickers. Lead with counterparty status and custody model.</p>
         </div>
-
-        <div class="reg-footer" style="margin-top: 22px;">
-          Regulatory context, for reference rather than for the pitch: the US GENIUS Act, a federal stablecoin framework, was enacted in July 2025. In the UK, FCA policy statement PS26/10 was published in June 2026, with issuer authorisation opening in September 2026. Licences are table stakes. They sit in a footer because they are not what wins the deal.
-        </div>
-
-        <div style="margin-top: 24px;">
-          <a class="exit-link" href="weekend-test.html">See these plays running inside one campaign &rarr;</a>
-        </div>
-
       </div>
 
-      <!-- ============ SIDE RAIL ============ -->
-      <aside class="rail">
-        <p class="rail-title">Why this exists</p>
-        <div class="rail-item">
-          <p>This page argues a position: <strong>never fight an incumbent on its strongest attribute.</strong> A challenger who claims to be more secure than a global bank loses the room. A challenger who concedes security and attacks what that security costs the client's working capital changes what the deal is about. That reframe is the whole page.</p>
+      <!-- ============ RIGHT: THE RESPONSE ============
+           To add a proof point, copy one whole "fact-row" div
+           and edit the two lines of text inside it. -->
+      <div class="response-card">
+        <div class="speaker-row">
+          <div class="speaker-dot dot-emerald"></div>
+          <span class="speaker-label label-emerald">Rep response</span>
         </div>
-        <div class="rail-item">
-          <p>Every argument here is structural, not statistical. No failure rates, no percentages. If the mechanism is right, the prospect supplies their own evidence from their own payment history, which is more persuasive than any number a vendor could quote.</p>
+
+        <p class="response-quote">"You hold no crypto and you touch no chain. You hold a regulated payments relationship with Sokin, in the currency you already hold. Settlement rail changes. Your balance sheet does not."</p>
+
+        <div class="fact-list">
+
+          <div class="fact-row">
+            <div class="fact-check">✓</div>
+            <div>
+              <p class="fact-title">Regulated counterparty, not a crypto venue</p>
+              <p class="fact-body">Your contract is with Sokin, Plata Capital Ltd, trading as Sokin, registered in England and Wales. Live globally outside prohibited jurisdictions.</p>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <div class="fact-check">✓</div>
+            <div>
+              <p class="fact-title">US GENIUS Act enacted, July 2025</p>
+              <p class="fact-body">Federal framework enacted July 2025. OCC and Treasury rules proposed through 2026. Regime effective January 2027.</p>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <div class="fact-check">✓</div>
+            <div>
+              <p class="fact-title">UK FCA final rules published, 30 June 2026</p>
+              <p class="fact-body">Five policy statements landed together. PS26/11 governs the regulated cryptoasset activities that apply to a payments platform. Authorisation gateway runs 30 September 2026 to 28 February 2027.</p>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <div class="fact-check">✓</div>
+            <div>
+              <p class="fact-title">No custody, no keys, no chain operations</p>
+              <p class="fact-body">You fund in fiat and your recipient is paid in local currency. Nothing new for IT to hold.</p>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <div class="fact-check">✓</div>
+            <div>
+              <p class="fact-title">One API, one dashboard, one audit trail</p>
+              <p class="fact-body">Fiat and stablecoin in a single treasury view. Same reconciliation your auditors already sign off on.</p>
+            </div>
+          </div>
+
         </div>
-      </aside>
+      </div>
 
     </div>
 
