@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model performance · Sokin Send GTM Hub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ======= HEADER: copied from the five main pages. This page is
+       not yet in the nav, so no link carries aria-current. ======= -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <span class="brand-name">Sokin Send</span>
+          <span class="brand-divider">|</span>
+          <span class="brand-sub">GTM Campaign Hub</span>
+        </div>
+        <div class="brand-meta">
+          <span class="meta-label">Hybrid Finance · US &amp; UK</span>
+          <span class="author-pill">Eva Jovanova</span>
+        </div>
+      </div>
+      <nav class="tab-nav">
+        <a href="index.html">1. ROI Calculator</a>
+        <a href="battlecard.html">2. Compliance Battlecard</a>
+        <a href="icp-scorer.html">3. ICP Scorer</a>
+        <a href="weekend-test.html">4. The Weekend Test</a>
+        <a href="90-days.html">5. 90 Days vs the JD</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- ============ SECTION 1 · PAGE INTRO ============ -->
+    <div class="page-intro">
+      <span class="eyebrow eyebrow-indigo">Model performance · portfolio view</span>
+      <h1 class="page-title">Is the model predicting revenue?</h1>
+      <p class="page-lede">The scorer qualifies one account at a time. This page audits whether the four triggers earn their place, and whether the data behind them is being kept alive.</p>
+    </div>
+
+    <!-- ============ SECTION 2 · METRIC ROW ============
+         All figures below are placeholders. icp-live.js overwrites
+         every one of them on load; the script is the source of truth. -->
+    <div class="metric-grid">
+
+      <div class="card">
+        <span class="card-label">Accounts scored</span>
+        <span class="big-number" id="m-scored">1,284</span>
+        <p class="small-note" id="m-scored-note">of 1,410 in book</p>
+      </div>
+
+      <div class="card">
+        <span class="card-label">Qualified</span>
+        <span class="big-number" id="m-qualified">217</span>
+        <p class="small-note" id="m-qualified-note">17% of scored</p>
+      </div>
+
+      <div class="card">
+        <span class="card-label">Pipeline from qualified</span>
+        <span class="big-number" id="m-pipeline">64%</span>
+        <p class="small-note" id="m-pipeline-note">of new Send pipeline</p>
+      </div>
+
+      <div class="card">
+        <span class="card-label">Cycle, qualified</span>
+        <span class="big-number" id="m-cycle">71 days</span>
+        <p class="small-note" id="m-cycle-note">vs 118 days unqualified</p>
+      </div>
+
+    </div>
+
+    <!-- ============ SECTION 3 · TRIGGER PERFORMANCE ============
+         The rows are built entirely by icp-live.js from the DATA
+         object at the top of that file. Add or remove a trigger
+         there; nothing in this file needs to change. -->
+    <div class="card trigger-perf">
+      <div class="trigger-perf-head">
+        <span class="card-label" style="margin-bottom: 0;">Trigger performance</span>
+        <span class="perf-legend">bar length = accounts flagged · number = win rate</span>
+      </div>
+
+      <div id="trigger-rows"></div>
+
+      <p class="perf-baseline" id="perf-baseline">Baseline win rate across all scored accounts: 23%</p>
+    </div>
+
+    <!-- ============ SECTION 4 · COVERAGE STRIP ============
+         Amber when coverage sits below the floor, neutral emerald
+         when it is healthy. icp-live.js decides which. -->
+    <div class="coverage-bar" id="coverage-bar">
+      <p class="coverage-head" id="coverage-head">126 accounts unscored · 9 trigger fields not updated in 90 days</p>
+      <p class="coverage-sub" id="coverage-sub">Coverage below 90% makes every number above unreliable.</p>
+    </div>
+
+    <!-- ============ SECTION 5 · HONESTY FOOTNOTE ============ -->
+    <div class="footnote-bar">
+      <span>Illustrative figures. The structure is the deliverable; the numbers get replaced with real CRM data on day one.</span>
+    </div>
+
+  </main>
+
+  <script src="icp-live.js"></script>
+</body>
+</html>
