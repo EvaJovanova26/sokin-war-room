@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Becoming ICP · Sokin Send GTM Hub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- All styles for this page live here, scoped under .icp-path,
+       so this file cannot affect any other page on the site. -->
+  <style>
+    .icp-path { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
+
+    .path-node {
+      position: relative;
+      padding: 0 0 36px 56px;
+    }
+    /* the vertical spine */
+    .path-node::before {
+      content: "";
+      position: absolute;
+      left: 17px; top: 40px; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .path-node:last-child::before { display: none; }
+
+    /* the node marker */
+    .path-marker {
+      position: absolute;
+      left: 0; top: 2px;
+      width: 36px; height: 36px;
+      border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 13px; font-weight: 500;
+      background: var(--card); border: 2px solid var(--border-strong);
+      color: var(--text-muted);
+    }
+    .path-node.is-gate .path-marker {
+      border-color: var(--emerald);
+      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .path-node.is-stop .path-marker {
+      border-color: #b91c1c;
+      color: #fca5a5;
+      background: rgba(69, 10, 10, 0.3);
+    }
+    .path-node.is-final .path-marker {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      color: #0f172a;
+    }
+
+    .path-eyebrow {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-faint);
+      display: block; margin: 0 0 6px;
+    }
+    .path-node.is-gate .path-eyebrow { color: var(--emerald); }
+    .path-node.is-stop .path-eyebrow { color: #fda4af; }
+
+    .path-title { margin: 0 0 8px; font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-bright); }
+    .path-body { margin: 0; max-width: 640px; font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+
+    /* pass / fail branches under a gate */
+    .path-branches { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .branch {
+      display: inline-flex; align-items: baseline; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      font-size: 12.5px; line-height: 1.4;
+      border: 1px solid var(--border); background: var(--card);
+      color: var(--text-muted);
+    }
+    .branch b { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+    .branch-pass { border-color: #1e4b3d; background: rgba(16, 185, 129, 0.08); }
+    .branch-pass b { color: var(--emerald); }
+    .branch-fail b { color: var(--text-faint); }
+    .branch-stop { border-color: rgba(127, 29, 29, 0.6); background: rgba(69, 10, 10, 0.25); color: #fda4af; }
+    .branch-stop b { color: #fca5a5; }
+
+    /* the CRM section */
+    .crm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .crm-card { display: flex; flex-direction: column; gap: 10px; }
+    .crm-card .card-label { margin-bottom: 0; color: var(--cyan); }
+    .crm-card h3 { margin: 0; font-size: 16px; font-weight: 700; color: var(--text-bright); }
+    .crm-card p { margin: 0; font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+    .crm-meta {
+      margin-top: auto; padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .crm-meta span {
+      font-family: var(--mono); font-size: 10.5px;
+      letter-spacing: 0.08em; color: var(--text-faint);
+    }
+    .crm-meta span b { color: #cbd5e1; font-weight: 500; }
+
+    .section-head { margin: 20px 0 0; }
+    .section-head h2 { margin: 0 0 6px; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-bright); }
+    .section-head p { margin: 0; max-width: 720px; font-size: 14.5px; line-height: 1.6; color: var(--text-muted); }
+
+    @media (max-width: 620px) {
+      .path-node { padding-left: 48px; }
+      .path-marker { width: 32px; height: 32px; }
+      .path-node::before { left: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= HEADER: copied from the five main pages. This page is
+       not yet in the nav; add it there yourself when ready. ======= -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <span class="brand-name">Sokin Send</span>
+          <span class="brand-divider">|</span>
+          <span class="brand-sub">GTM Campaign Hub</span>
+        </div>
+        <div class="brand-meta">
+          <span class="meta-label">Hybrid Finance · US &amp; UK</span>
+          <span class="author-pill">Eva Jovanova</span>
+        </div>
+      </div>
+      <nav class="tab-nav">
+        <a href="index.html">1. The cost of waiting</a>
+        <a href="battlecard.html">2. Frozen is not safe</a>
+        <a href="icp-scorer.html">3. Who is worth chasing</a>
+        <a href="weekend-test.html">4. The Weekend Test</a>
+        <a href="90-days.html">5. The first 90 days</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <div class="page-intro">
+      <span class="eyebrow eyebrow-indigo">Qualification pipeline · account to sequence</span>
+      <h1 class="page-title">How an account becomes ICP</h1>
+      <p class="page-lede">The scorer on tab 3 shows the decision. This page shows the machinery behind it: every step an account passes through, every gate that can stop it, and where each piece of data lives in the CRM so the model stays alive after launch week.</p>
+    </div>
+
+    <!-- ============ THE PIPELINE ============
+         Each step is one self-contained .path-node div. Gates carry
+         the is-gate class, the sanctions screen carries is-stop, the
+         final state carries is-final. Copy a whole node to add one. -->
+    <div class="icp-path">
+
+      <div class="path-node">
+        <div class="path-marker">1</div>
+        <span class="path-eyebrow">Step · Enter the book</span>
+        <p class="path-title">The account exists in the CRM</p>
+        <p class="path-body">An account record with the minimum firmographic fields filled: industry, size, headquarters, corridors touched. No scoring happens yet. An account that is not in the book cannot be qualified, which sounds obvious until you audit how many deals started outside the CRM and never got a record.</p>
+      </div>
+
+      <div class="path-node is-stop">
+        <div class="path-marker">!</div>
+        <span class="path-eyebrow">Gate · Sanctions screen</span>
+        <p class="path-title">Prohibited jurisdiction check, before anything else</p>
+        <p class="path-body">If a sanctioned or prohibited jurisdiction sits anywhere in the payment flow, the account exits the pipeline here, permanently, regardless of how attractive it looks on every other measure. This gate runs first because no downstream signal is allowed to argue with it.</p>
+        <div class="path-branches">
+          <span class="branch branch-stop"><b>Fails</b> Flagged, closed, not revisited</span>
+          <span class="branch branch-pass"><b>Passes</b> Continues to fit</span>
+        </div>
+      </div>
+
+      <div class="path-node is-gate">
+        <div class="path-marker">2</div>
+        <span class="path-eyebrow">Gate · Structural fit</span>
+        <p class="path-title">Could this ever be a good customer?</p>
+        <p class="path-body">Three fields, set from what the company is rather than what it does this week: corridor exposure, annual cross-border volume band, company size. Fit is slow-moving, so these fields are set once and refreshed on a schedule rather than watched daily.</p>
+        <div class="path-branches">
+          <span class="branch branch-pass"><b>High fit</b> Continues to triggers</span>
+          <span class="branch branch-fail"><b>Low fit</b> Automated nurture only, never staffed</span>
+        </div>
+      </div>
+
+      <div class="path-node is-gate">
+        <div class="path-marker">3</div>
+        <span class="path-eyebrow">Gate · Live triggers</span>
+        <p class="path-title">Is something happening right now?</p>
+        <p class="path-body">Observable events, logged as fields on the account: a new finance or treasury leader, an ERP migration underway, hiring for international expansion, multiple providers stitched together. Fit says the account could buy. Triggers say it could buy now. The gate is a threshold, not a judgement call: enough live triggers alongside high fit, and the account qualifies.</p>
+        <div class="path-branches">
+          <span class="branch branch-pass"><b>Clears</b> Qualified, a seller owns it</span>
+          <span class="branch branch-fail"><b>Short</b> Nurture, and watch for the next event</span>
+        </div>
+      </div>
+
+      <div class="path-node is-final">
+        <div class="path-marker">&#10003;</div>
+        <span class="path-eyebrow">State · ICP, in sequence</span>
+        <p class="path-title">Pushed to the corridor sequence</p>
+        <p class="path-body">The account drops into the corridor sequence with the business case calculator pre-loaded on its own numbers, and a named seller owns it from this moment. Qualification is not a report line; it is a handover with a deadline attached.</p>
+      </div>
+
+      <div class="path-node">
+        <div class="path-marker">&#8635;</div>
+        <span class="path-eyebrow">Loop · The model is audited</span>
+        <p class="path-title">Monthly: do the signals still predict revenue?</p>
+        <p class="path-body">Once a month, across the whole book, two questions: are the signals that gate the pipeline actually correlated with wins, and is the data behind them being maintained? A qualification model nobody audits decays into folklore within two quarters. <a href="icp-live.html">The model performance view</a> is that audit.</p>
+      </div>
+
+    </div>
+
+    <!-- ============ HOW IT LIVES IN THE CRM ============ -->
+    <div class="section-head">
+      <h2>How it lives in the CRM</h2>
+      <p>Every input above is a field on the account record with a named owner and an update rhythm. This is what separates a model from a slide: the slide describes it once, the CRM keeps it true.</p>
+    </div>
+
+    <div class="crm-grid">
+
+      <div class="card crm-card">
+        <span class="card-label">Fit fields</span>
+        <h3>Set at creation, refreshed quarterly</h3>
+        <p>Corridor exposure, volume band, company size. Populated when the record is created, from enrichment and first-call notes, then reviewed on a quarterly cadence because structure changes slowly.</p>
+        <div class="crm-meta">
+          <span>Owner · <b>RevOps, with enrichment tooling</b></span>
+          <span>Rhythm · <b>Quarterly review</b></span>
+        </div>
+      </div>
+
+      <div class="card crm-card">
+        <span class="card-label">Trigger fields</span>
+        <h3>Event-driven, logged as they happen</h3>
+        <p>Leadership changes, ERP migrations, expansion hiring, provider sprawl. Reps log what they hear on calls; support tickets and public signals feed the rest. A trigger field untouched for a quarter is treated as stale, not as a quiet no.</p>
+        <div class="crm-meta">
+          <span>Owner · <b>Reps and support, shared</b></span>
+          <span>Rhythm · <b>As events occur, staleness flagged</b></span>
+        </div>
+      </div>
+
+      <div class="card crm-card">
+        <span class="card-label">The score</span>
+        <h3>Computed, never typed</h3>
+        <p>Qualification is a formula over the fields, not an opinion typed into a picklist. Nobody hand-edits a score; if the verdict looks wrong, the fix is a field or the model, and both leave an audit trail.</p>
+        <div class="crm-meta">
+          <span>Owner · <b>The model, versioned</b></span>
+          <span>Rhythm · <b>Recomputed on any field change</b></span>
+        </div>
+      </div>
+
+      <div class="card crm-card">
+        <span class="card-label">The sequence</span>
+        <h3>Qualification triggers the handover</h3>
+        <p>Clearing the gate fires the corridor sequence automatically and assigns an owner. The account cannot sit qualified and unowned, because a qualified account with no next step is pipeline evaporating quietly.</p>
+        <div class="crm-meta">
+          <span>Owner · <b>The assigned seller</b></span>
+          <span>Rhythm · <b>Immediate on qualification</b></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footnote-bar" style="margin-top: 8px;">
+      <span>Process description, not reporting. Field names and cadences get finalised with RevOps in the first 30 days.</span>
+    </div>
+
+  </main>
+
+</body>
+</html>
